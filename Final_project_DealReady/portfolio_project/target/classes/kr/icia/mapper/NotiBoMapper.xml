@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.icia.mapper.NotiBoMapper">
+	<select id="getList" resultType="kr.icia.domain.NotiBoardVO">
+		select bno, title, regdate, readcnt from (
+			select row_number() over (order by bno desc) rnum,
+			bno, title, regdate, readcnt
+			from notice_bo order by bno desc
+		) where rnum between #{startNum} and #{startNum}+9
+	</select>
+
+	<insert id="insertNoti">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select no_seq_bo.nextval from dual
+		</selectKey>
+		insert into notice_bo(bno, title, content, writer)
+		values (#{bno}, #{title}, #{content}, #{writer})
+	</insert>
+
+	<select id="read" resultType="kr.icia.domain.NotiBoardVO">
+		select * from notice_bo where bno=#{bno}
+	</select>
+
+	<delete id="delete">
+		delete notice_bo where bno=#{bno}
+	</delete>
+
+	<update id="update">
+		update notice_bo set title=#{title}, content=#{content},
+		updateDate=sysdate where bno=#{bno}
+	</update>
+
+	<update id="updateReadCnt">
+		update notice_bo set readcnt=readcnt+1 where bno=#{bno}
+	</update>
+
+	<select id="totalCnt" resultType="int">
+		select count(*) from notice_bo
+	</select>
+
+</mapper>

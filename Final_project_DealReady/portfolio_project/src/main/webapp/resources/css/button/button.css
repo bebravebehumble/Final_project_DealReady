@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.btn-default {
+	width: 70px;
+	height: 40px;
+	border: #BDBDBD;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.btn-default:hover {
+	background: #A4A4A4;
+	color: white;
+}
+
+.btn-default:active {
+	border: 2px solid #6E6E6E;
+}
+
+.qnaBtn {
+	width: 100px;
+	height: 40px;
+	border: #BDBDBD;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.qnaBtn:hover {
+	background: #A4A4A4;
+	color: white;
+}
+
+.qnaBtn:active {
+	border: 2px solid #6E6E6E;
+}
+
+.modal {
+	width: 70px;
+	height: 40px;
+	border: none;
+	background: #0080ff;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 15px;
+	color: white;
+}
+
+.modal:hover {
+	background: #0062c4;
+}
+
+.modal:active {
+	border: 2px solid #57abff;
+}
+
+.s-Btn {
+	width: 70px;
+	height: 40px;
+	background: #f8be70;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.s-Btn:hover {
+	background: #f59b21;
+}
+
+.s-Btn:active {
+	box-shadow: 0 0 0 2px #f8be70;
+}
+
+.more-btn {
+	display: none;
+	padding: 10px;
+	width: 1158px;
+	border: none;
+	border-bottom: 1px solid #cccccc;
+	background: none;
+	text-size: 18px;
+}
+
+.more-btn:hover {
+	cursor: pointer;
+}

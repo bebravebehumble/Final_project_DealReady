@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+/* 모달창 배경 */
+.regModal {
+  display: none; /* 숨기기 */
+  position: fixed;
+  z-index: 1;
+  padding-top: 40px; /* 박스 위치 */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 0px auto;
+  width: 500px;
+  height: 200px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 4px gray;
+}
+
+/* Modal Header */
+.modal-header {
+  border-bottom: 1px solid #E6E6E6;
+  height: 30%;
+  padding: 0px 20px;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 3;
+}
+
+/* Modal body */
+.modal-body {
+  border-bottom: 1px solid #E6E6E6;
+  height: 40%;
+  padding: 0px 20px;
+  font-size: 15px;
+  line-height: 5.5;
+}
+
+/* Modal footer */
+.modal-footer {
+  heigth: 30%;
+  text-align: right;
+  padding: 9px 20px;
+}
