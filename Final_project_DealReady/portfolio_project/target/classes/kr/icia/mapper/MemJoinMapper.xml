@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.icia.mapper.MemJoinMapper">
+	<insert id="memberJoin">
+		insert into mem_join_bo (userid, userpw, username,
+		usernick, usermail, useradd, useradd1, useradd2
+		) values (#{userid}, #{userpw}, #{userName},
+		#{userNick}, #{userMail}, #{userAdd}, #{userAdd1}, #{userAdd2}
+		)
+	</insert>
+
+	<insert id="memberAuth">
+		insert into mem_auth_bo (userid) values (#{userid})
+	</insert>
+
+	<select id="useridCheck" resultType="int">
+		select count(*) from mem_join_bo where userid=#{userid}
+	</select>
+
+</mapper>

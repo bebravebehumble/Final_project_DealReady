@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.icia.mapper.QnaBoMapper">
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND" prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='T'.toString()">
+							title like '%' || #{keyword} || '%'
+						</when>
+						<when test="type=='C'.toString()">
+							content like '%' || #{keyword} || '%'
+						</when>
+						<when test="type=='W'.toString()">
+							writer like '%' || #{keyword} || '%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="getList" resultType="kr.icia.domain.QnaBoardVO">
+		<![CDATA[
+			select bno, title, content, writer, regdate, replycnt, readcount
+			from (
+				select /*+INDEX_DESC(qna_bo pk_qna_bo)*/
+				rownum rn, bno, title, content, writer, regdate, replycnt, readcount
+				from qna_bo
+				where
+		]]>
+		<include refid="criteria" />
+		<![CDATA[
+			 rownum <= #{pageNum} * #{amount}
+			)
+			where rn > (#{pageNum}-1) * #{amount}
+		]]>
+	</select>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select seq_bo.nextval from dual
+		</selectKey>
+		insert into qna_bo(bno, title, content, writer)
+		values (#{bno}, #{title}, #{content}, #{writer})
+	</insert>
+
+	<select id="read" resultType="kr.icia.domain.QnaBoardVO">
+		select * from qna_bo where
+		bno=#{bno}
+	</select>
+
+	<delete id="delete">
+		delete qna_bo where bno=#{bno}
+	</delete>
+
+	<update id="update">
+		update qna_bo
+		set title=#{title}, content=#{content},
+		writer=#{writer}, updateDate=sysdate
+		where bno=#{bno}
+	</update>
+
+	<update id="updateReplyCnt">
+		update qna_bo set replycnt=replycnt + #{amount}
+		where bno = #{bno}
+	</update>
+
+	<select id="getTotalCount" resultType="int">
+		select count(bno) from qna_bo where
+		<include refid="criteria"></include>
+		<![CDATA[
+			bno > 0
+		]]>
+	</select>
+
+	<update id="updateReadCnt">
+		update qna_bo set readcount=readcount + 1
+		where bno=#{bno}
+	</update>
+
+</mapper>

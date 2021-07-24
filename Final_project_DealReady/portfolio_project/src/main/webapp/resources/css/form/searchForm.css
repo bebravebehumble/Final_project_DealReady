@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.searchBox, .search select {
+	margin: 15px 0px;
+	padding: 5px;
+	font-size: 15px;
+	border: 1px solid #BDBDBD;
+	border-radius: 5px;
+}
+
+.search select {
+	line-height: 18px;
+}
+
+.searchBox {
+	line-height: 20px;
+}
+
+.searchBox:focus, .search select:focus {
+	outline: none;
+	border: 1px solid #6E6E6E;
+	box-shadow: 0 0 0 1px #6E6E6E;
+}

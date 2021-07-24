@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.icia.mapper.MainListBoMapper">
+	<select id="getMainList" resultType="kr.icia.domain.UserStoreBoardVO">
+		select pno, pdid, pdprice, pdstock, title, writer, useradd, tradingcase, state, priceinfo0,
+		priceinfo1, priceinfo2, regdate, readcnt from ustore_bo order by pno desc
+	</select>
+</mapper>
