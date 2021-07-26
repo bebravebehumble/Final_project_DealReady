@@ -156,6 +156,7 @@ $(document).ready(function() {
 		$("#moreListBtn").css("display", "block");
 	}
 	$("#moreListBtn").on("click", function(e) {
+		console.log(total);
 		clickCnt = clickCnt + 1;
 		var data = {startNum: startNum};
 		var str = "";
@@ -169,7 +170,7 @@ $(document).ready(function() {
 			data: data,
 			success: function(result) {
 				if (clickCnt == 1) {
-					total = total - result.length + 1;
+					total = total - 9;
 				}
 				if (result.length < 10) {
 					$("#moreListBtn").css("display", "none");	
