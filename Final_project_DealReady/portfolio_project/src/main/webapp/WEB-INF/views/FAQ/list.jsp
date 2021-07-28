@@ -206,6 +206,7 @@ $(document).ready(function() {
 		actionForm.find("input[name='writer']").remove();
 		bnoForm.find("input[name='bno']").remove();
 		bnoForm.find("input[name='writer']").remove();
+		document.location.reload();
 		self.location = "/FAQ/list";
 	});
 
