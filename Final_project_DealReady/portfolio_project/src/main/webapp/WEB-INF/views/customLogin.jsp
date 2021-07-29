@@ -72,6 +72,7 @@ $(document).ready(function() {
 			alert("비밀번호를 입력해 주세요.");
 			return false;
 		}
+		self.location = "/";
 	});
 
 	$('button[type="button"]').on("click", function(e) {	// join 버튼 누를 시
