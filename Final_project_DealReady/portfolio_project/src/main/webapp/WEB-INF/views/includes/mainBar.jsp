@@ -23,7 +23,7 @@
 			</form>
 			<ul>
 				<li id="store-btn"><a href="/">딜레디몰</a></li>
-				<li id="sell-btn"><a href="/store/upload">판매GO</a></li>
+				<li id="sell-btn">판매GO</li>
 				<li id="shop-btn">쇼핑몰</li>
 				<li id="qna-btn"><a href="/qnaBoard/list">게시판</a></li>
 				<li id="notice-btn"><a href="/notice/list">공지사항</a></li>
@@ -40,10 +40,12 @@ $(document).ready(function(e) {
 		if (principal == 'anonymousUser') {
 			e.preventDefault();
 			if (confirm("상품 등록은 로그인 후 이용 가능합니다. 로그인 페이지로 이동하시겠습니까?") == true) {
-				self.location = "/store/upload";
+				self.location = "/customLogin";
 			} else {
 				return false;
 			}
+		} else {
+			self.location = "/store/upload";
 		}
 	});
 
