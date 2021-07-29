@@ -158,7 +158,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		if (principal == "anonymousUser") {
 			if (confirm("궁그미 게시판 질문 작성은 로그인 후 가능합니다. 로그인 페이지로 이동하시겠습니까?") == true) {
-				self.location = "/qnaBoard/register";
+				self.location = "/customLogin";
 			} else {
 				return false;
 			}
