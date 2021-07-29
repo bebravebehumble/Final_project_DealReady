@@ -200,14 +200,8 @@ $(document).ready(function() {
 				writer: writer
 			}
 		});
-		actionForm.find("input[name='title']").remove();
-		actionForm.find("input[name='content']").remove();
-		actionForm.find("input[name='bno']").remove();
-		actionForm.find("input[name='writer']").remove();
-		bnoForm.find("input[name='bno']").remove();
-		bnoForm.find("input[name='writer']").remove();
+		modal.hide();
 		document.location.reload();
-		self.location = "/FAQ/list";
 	});
 
 
