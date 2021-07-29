@@ -151,7 +151,7 @@ public class CommonController {
 
 		// 이메일 보낼 준비
 		log.info("send pwMail");
-		String setFrom = "qlfneef91@naver.com";
+		String setFrom = "";
 		String toMail = userMailPw;
 		String title = "[딜레디] " + userid + " 님, 딜레디 임시 비밀번호입니다.";
 		String content = "안녕하세요, 딜레디 회원님." + "<br><br>"
